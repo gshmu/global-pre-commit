@@ -38,10 +38,10 @@ bash git-hooks.sh
 如果仓库已经 clone 过了，Git template 不会回头修改这些已有仓库。对已有仓库所在的父级目录执行：
 
 ```bash
-bash git-hooks.sh /path/to/repos-parent-dir
+bash git-hooks.sh /path/to/repo-or-repos
 ```
 
-这里传的是“仓库父级目录”。脚本会先设置全局 Git template，然后只处理这个目录下面第一层子目录里的 Git 仓库，把模板 hooks 同步到它们的 `.git/hooks`，不会递归扫描更深层目录。
+可以传 “某个仓库” 或 “仓库父级目录”。脚本会先设置全局 Git template，然后只处理这个目录下面第一层子目录里的 Git 仓库，把模板 hooks 同步到它们的 `.git/hooks`，不会递归扫描更深层目录。
 
 之后正常 clone / init 仓库即可。
 

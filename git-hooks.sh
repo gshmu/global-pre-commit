@@ -14,7 +14,12 @@ TARGET_DIR="$1"
 shopt -s nullglob
 SUCCESS_COUNT=0
 
-for repo in "$TARGET_DIR"/*/; do
+if [[ -d "$TARGET_DIR/.git" ]]; then
+    REPOS=("$TARGET_DIR")
+else
+    REPOS=("$TARGET_DIR"/*/)
+fi
+for repo in "${REPOS[@]}"; do
     repo=${repo%/}
     dirname="${repo##*/}"
     [[ "$dirname" == .* ]] && continue
